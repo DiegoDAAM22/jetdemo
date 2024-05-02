@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: edificios
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d003d86fa38ca33468f9cc5fe61423e3, type: 3}
+      propertyPath: m_TagString
+      value: pintable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

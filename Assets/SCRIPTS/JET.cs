@@ -26,8 +26,8 @@ public class JET : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
-        Vector3 move = transform.forward * vertical / 2;
+        //transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
+        Vector3 move = (transform.forward * vertical  + transform.right * horizontal)/2;
 
         if (_characterController.isGrounded == false)
         {
