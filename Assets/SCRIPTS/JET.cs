@@ -27,7 +27,8 @@ public class JET : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         //transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
-        Vector3 move = (transform.forward * vertical  + transform.right * horizontal)/2;
+        Vector3 move = (Camera.main.transform.forward * vertical  + Camera.main.transform.right * horizontal)/2;
+        transform.rotation = Camera.main.transform.rotation;
 
         if (_characterController.isGrounded == false)
         {
@@ -54,6 +55,9 @@ public class JET : MonoBehaviour
         _animatorController.SetBool("floor", _characterController.isGrounded);
         _animatorController.SetFloat("velocidadY", move.y);
         Debug.Log(_characterController.isGrounded);
+        // si pulso la e...
+        if (Input.GetKeyDown(KeyCode.E))
+        { GameManager.Instance.CambiarCamara();}
 
     }
     private void OnCollisionEnter(Collision collision)
