@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool CamaraOn = true;
+    private bool CamaraOn = false;
     // true -> modo normal
     // false -> modo pintar
     private CinemachineVirtualCamera camaraPintar;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     public static GameManager Instance { get; private set; }
@@ -31,7 +31,11 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
-            camaraPintar =  GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+            camaraNormal = GameObject.Find("CamaraPersonaje").GetComponent<CinemachineVirtualCamera>();
+            camaraPintar = GameObject.Find("CamaraPintar").GetComponent<CinemachineVirtualCamera>();
+            camaraPintar.enabled = false;
+            camaraNormal.enabled = true;
+            //camaraPintar =  GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         }
     }
 

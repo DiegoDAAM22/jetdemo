@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class JET : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 25.0f;
     public float turnSpeed = 300.0f;
     public float gravedad = -9.81f;
     private float velocidadCaida;
     private Animator _animatorController;
     private CharacterController _characterController;
+    private Rigidbody _rb;
     private bool floor = true;
     public float jumpf;
+    private bool doblejump = false;
     
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class JET : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _animatorController = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();    
     }
 
     // Update is called once per frame
@@ -27,10 +30,15 @@ public class JET : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         //transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
-        Vector3 move = (Camera.main.transform.forward * vertical  + Camera.main.transform.right * horizontal)/2;
+        Vector3 camerafw = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        camerafw.y = 0;
+        cameraRight.y = 0;
+        Vector3 move = ( camerafw * vertical * speed  + cameraRight * horizontal * speed);
+        move.y = _rb.velocity.y;
         transform.rotation = Camera.main.transform.rotation;
 
-        if (_characterController.isGrounded == false)
+       /* if (_characterController.isGrounded == false)
         {
            velocidadCaida  += gravedad * Time.deltaTime;
         }
@@ -39,25 +47,45 @@ public class JET : MonoBehaviour
             velocidadCaida = -1.0f;
         }
 
-        move.y = velocidadCaida;
+        move.y = velocidadCaida;*/
 
-        if (Input.GetButtonDown("Jump") && _characterController.isGrounded)
+        if (Input.GetButtonDown("Jump") && floor) //&& _characterController.isGrounded)
         {
-            // TODO: REVISAR ESTO YA QUE ACTIVA LA ANIMACIN CUANDO NO HACE FALTA
             _animatorController.SetTrigger("jump");
-            // TODO
-            velocidadCaida += jumpf ;
+        
+            //velocidadCaida += jumpf ;
+            Debug.Log(Vector3.up);
+            _rb.AddForce(Vector3.up * jumpf);
             floor = false;
+            doblejump = true;
         }
 
-          _characterController.Move(move);
+        /*if (Input.GetButtonDown("Jump") && doblejump == true && floor == false) //&& _characterController.isGrounded)
+        {
+            _animatorController.SetTrigger("jump");
+           
+            //velocidadCaida += jumpf ;
+            Debug.Log(Vector3.up);
+            _rb.AddForce(Vector3.up * jumpf);
+            floor = true;
+            doblejump = false;
+        }*/
+
+        //_characterController.Move(move);
+        _rb.velocity = move;
         _animatorController.SetBool("speed", move.z != 0);
-        _animatorController.SetBool("floor", _characterController.isGrounded);
-        _animatorController.SetFloat("velocidadY", move.y);
-        Debug.Log(_characterController.isGrounded);
-        // si pulso la e...
+        _animatorController.SetBool("floor", floor);
+        _animatorController.SetFloat("velocidadY", _rb.velocity.y);
+ 
         if (Input.GetKeyDown(KeyCode.E))
         { GameManager.Instance.CambiarCamara();}
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        { speed = 30; }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        { speed = 25; }
+
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -66,7 +94,6 @@ public class JET : MonoBehaviour
         {
             floor = true;
             Debug.Log(floor);
-            //_animatorController.SetBool("jump", false);
         }
 
     }
