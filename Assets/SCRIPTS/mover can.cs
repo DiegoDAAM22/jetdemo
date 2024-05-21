@@ -9,7 +9,7 @@ public class movercan : MonoBehaviour
 
     public float limiteX;
     public float limiteY;
-    public float sensitivity = 1f;
+    public float sensitivity = 8f;
 
     // Start is called before the first frame update
     void Start()
