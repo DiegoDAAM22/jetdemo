@@ -6,7 +6,7 @@ public class JET : MonoBehaviour
 {
     public float speed = 25.0f;
     public float turnSpeed = 300.0f;
-    public float gravedad = -9.81f;
+    public float gravedad = -30f;
     private float velocidadCaida;
     private Animator _animatorController;
     private CharacterController _characterController;
@@ -14,14 +14,23 @@ public class JET : MonoBehaviour
     private bool floor = true;
     public float jumpf;
     private bool doblejump = false;
-    
+
+    public GameObject canroot;
+    private List<Transform> canchilds = new List<Transform>();
+    private int canactiveindex;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _animatorController = GetComponent<Animator>();
-        _rb = GetComponent<Rigidbody>();    
+        _rb = GetComponent<Rigidbody>();
+        for(int i= 0; i < canroot.transform.childCount; i++)
+        {
+            canchilds.Add(canroot.transform.GetChild(i));
+            Debug.Log(canroot.transform.GetChild(i).name);
+        }
     }
 
     // Update is called once per frame
@@ -85,6 +94,28 @@ public class JET : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         { speed = 25; }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("Pressing F detected");
+
+            for(int i = 0; i < canchilds.Count; i++)
+            {
+                if (i == (1+canactiveindex) % canchilds.Count)
+                {
+                    Debug.Log("Activando:" + canchilds[i].name);
+                    canchilds[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("Desactivando:" + canchilds[i]);
+                    canchilds[i].gameObject.SetActive(false);
+                }
+            }
+            canactiveindex++;
+            
+
+        }
 
 
     }

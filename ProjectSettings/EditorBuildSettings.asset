@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/JET.unity
+    guid: a1fe38fced8faae43a7282a34cfeaf30
   m_configObjects: {}
