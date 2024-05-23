@@ -47,7 +47,7 @@ public class JET : MonoBehaviour
         move.y = _rb.velocity.y;
         transform.rotation = Camera.main.transform.rotation;
 
-       /* if (_characterController.isGrounded == false)
+        /*if (_characterController.isGrounded == false)
         {
            velocidadCaida  += gravedad * Time.deltaTime;
         }
@@ -56,7 +56,7 @@ public class JET : MonoBehaviour
             velocidadCaida = -1.0f;
         }
 
-        move.y = velocidadCaida;*/
+        move.y = velocidadCaida; */
 
         if (Input.GetButtonDown("Jump") && floor) //&& _characterController.isGrounded)
         {
@@ -69,7 +69,7 @@ public class JET : MonoBehaviour
             doblejump = true;
         }
 
-        /*if (Input.GetButtonDown("Jump") && doblejump == true && floor == false) //&& _characterController.isGrounded)
+        /*if (Input.GetButtonDown("Jump") && doblejump == true && floor == false) 
         {
             _animatorController.SetTrigger("jump");
            
