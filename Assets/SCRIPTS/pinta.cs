@@ -21,7 +21,8 @@ public class pinta : MonoBehaviour
     {
         RaycastHit hit;
        
-         if (Input.GetMouseButton(0))// PULSO EL RATON
+         if(!PAUSEMENU.isPaused)
+        if (Input.GetMouseButton(0))// PULSO EL RATON
               {
             
             if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, rango)) // LANZO RAYO
