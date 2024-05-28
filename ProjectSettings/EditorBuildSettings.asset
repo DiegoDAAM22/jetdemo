@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/JET.unity
-    guid: a1fe38fced8faae43a7282a34cfeaf30
-  - enabled: 1
     path: Assets/Scenes/MENU.unity
     guid: e9271300dcf67cc41a21be1334bf090d
+  - enabled: 1
+    path: Assets/Scenes/JET.unity
+    guid: a1fe38fced8faae43a7282a34cfeaf30
   m_configObjects: {}

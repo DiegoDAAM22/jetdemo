@@ -8,12 +8,12 @@ public class pinta : MonoBehaviour
 {
     public GameObject pincel;
     private int rango = 3;
-    public AudioSource spray;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-      spray = GameObject.Find("spray").GetComponent<AudioSource>();
+     
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class pinta : MonoBehaviour
             
             if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, rango)) // LANZO RAYO
                 {
-                spray.Play();
+                
                 if (hit.collider.gameObject.layer == 3)
                     
                 //if (hit.collider.tag == "pintable") // HE CHOCADO CON ALGO PINTABLE?
