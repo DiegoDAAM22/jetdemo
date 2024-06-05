@@ -83,6 +83,7 @@ public class JET : MonoBehaviour
         //_characterController.Move(move);
         _rb.velocity = move;
         _animatorController.SetBool("speed", move.z != 0);
+        _animatorController.SetBool("side", move.x != 0);
         _animatorController.SetBool("floor", floor);
         _animatorController.SetFloat("velocidadY", _rb.velocity.y);
  
@@ -97,11 +98,14 @@ public class JET : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Pressing F detected");
-
-            for(int i = 0; i < canchilds.Count; i++)
+            if (canactiveindex == canchilds.Count)
             {
-                if (i == (1+canactiveindex) % canchilds.Count)
+                canactiveindex = -1;
+            }
+
+            for (int i = 0; i < canchilds.Count; i++)
+            {
+                if (i == (1+canactiveindex))
                 {
                     Debug.Log("Activando:" + canchilds[i].name);
                     canchilds[i].gameObject.SetActive(true);
@@ -113,10 +117,8 @@ public class JET : MonoBehaviour
                 }
             }
             canactiveindex++;
-            
 
         }
-
 
     }
     private void OnCollisionEnter(Collision collision)

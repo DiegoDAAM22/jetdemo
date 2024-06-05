@@ -25,7 +25,13 @@ public class Png : MonoBehaviour
     public void CambiarDireccion()
     {
         indice += 1;
-        agent.destination = puntos[indice % puntos.Length].position;
-        Debug.Log("Me dirijo al punto: " + indice % puntos.Length);
+        if (indice == puntos.Length)
+        {
+            indice = 0;
+            Debug.Log("llegue");
+        }
+        agent.destination = puntos[indice].position;
+       
+        Debug.Log(indice);
     }
 }
