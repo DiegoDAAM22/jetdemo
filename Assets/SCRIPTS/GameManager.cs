@@ -7,8 +7,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool CamaraOn = false;
-    // true -> modo normal
-    // false -> modo pintar
     private CinemachineVirtualCamera camaraPintar;
     private CinemachineVirtualCamera camaraNormal;
 
@@ -41,8 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void CambiarCamara()
     {
-        //¿ue camara edsta activa?
-        // si camaraon es verdadesro
         if (CamaraOn == true)
         {
             // gestion camaras
@@ -58,8 +54,6 @@ public class GameManager : MonoBehaviour
             CamaraOn = true;
         }
 
-        // en el caso contrario
-
     }
 
     public bool ModoCamara()
@@ -67,10 +61,4 @@ public class GameManager : MonoBehaviour
         return CamaraOn;
     }
 
-  /*  public string ModoCamara()
-    {
-        if (CamaraOn == true) return "Modo normal";
-        else "Modo pintar";
-       // return CamaraOn;
-    }*/
 }

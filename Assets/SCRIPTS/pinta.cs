@@ -3,17 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
 
 public class pinta : MonoBehaviour
 {
     public GameObject pincel;
     private int rango = 3;
-    
+    private int points = 0;
+    public TextMeshProUGUI texto;
+    public AudioSource paint;
+
 
     // Start is called before the first frame update
     void Start()
     {
-     
+        paint = GameObject.Find("LATA").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,9 @@ public class pinta : MonoBehaviour
                 {
                     GameObject pintado = Instantiate(pincel, hit.point, Quaternion.LookRotation(-hit.normal));
                     pintado.transform.parent = hit.collider.transform;
+                        paint.Play();
+                        points++;
+                        texto.text = points.ToString();
                     
                 }
             }
