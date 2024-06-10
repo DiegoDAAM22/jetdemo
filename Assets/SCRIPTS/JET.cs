@@ -115,10 +115,9 @@ public class JET : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-         Debug.Log(collision.gameObject.tag);
+
         if (collision.gameObject.tag == "cop")
         {
-            
             death.SetActive(true);
             Time.timeScale = 0f;
         }
