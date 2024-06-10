@@ -8,6 +8,8 @@ public class Cop : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject player;
     private Animator _animatorController;
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +17,13 @@ public class Cop : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("JET.SEPARACION");
         _animatorController = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       agent.SetDestination(player.transform.position); 
+        agent.SetDestination(player.transform.position);
     }
+
 }

@@ -14,7 +14,7 @@ public class JET : MonoBehaviour
     private bool floor = true;
     public float jumpf;
     private bool doblejump = false;
-
+    public GameObject death;
     public GameObject canroot;
     private List<Transform> canchilds = new List<Transform>();
     private int canactiveindex;
@@ -26,7 +26,8 @@ public class JET : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _animatorController = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
-        for(int i= 0; i < canroot.transform.childCount; i++)
+        death.SetActive(false);
+        for (int i= 0; i < canroot.transform.childCount; i++)
         {
             canchilds.Add(canroot.transform.GetChild(i));
             Debug.Log(canroot.transform.GetChild(i).name);
@@ -47,40 +48,15 @@ public class JET : MonoBehaviour
         move.y = _rb.velocity.y;
         transform.rotation = Camera.main.transform.rotation;
 
-        /*if (_characterController.isGrounded == false)
-        {
-           velocidadCaida  += gravedad * Time.deltaTime;
-        }
-        else if (_characterController.isGrounded && velocidadCaida < 0.0f)
-        {
-            velocidadCaida = -1.0f;
-        }
-
-        move.y = velocidadCaida; */
-
-        if (Input.GetButtonDown("Jump") && floor) //&& _characterController.isGrounded)
+        if (Input.GetButtonDown("Jump") && floor) 
         {
             _animatorController.SetTrigger("jump");
-        
-            //velocidadCaida += jumpf ;
             Debug.Log(Vector3.up);
             _rb.AddForce(Vector3.up * jumpf);
             floor = false;
             doblejump = true;
         }
 
-        /*if (Input.GetButtonDown("Jump") && doblejump == true && floor == false) 
-        {
-            _animatorController.SetTrigger("jump");
-           
-            //velocidadCaida += jumpf ;
-            Debug.Log(Vector3.up);
-            _rb.AddForce(Vector3.up * jumpf);
-            floor = true;
-            doblejump = false;
-        }*/
-
-        //_characterController.Move(move);
         _rb.velocity = move;
         _animatorController.SetBool("speed", move.z != 0);
         _animatorController.SetBool("side", move.x != 0);
@@ -123,11 +99,28 @@ public class JET : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+
         if (collision.gameObject.tag == "floor")
         {
             floor = true;
             Debug.Log(floor);
         }
 
+        if (collision.gameObject.layer == 6)
+        { _animatorController.SetTrigger("tramp"); }
+
+       
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+         Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "cop")
+        {
+            
+            death.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 }
