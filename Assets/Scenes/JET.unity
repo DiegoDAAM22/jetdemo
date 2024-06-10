@@ -7323,7 +7323,7 @@ GameObject:
   - component: {fileID: 932962142}
   - component: {fileID: 932962141}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PUNTOS FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12433,7 +12433,7 @@ GameObject:
   - component: {fileID: 1753679469}
   - component: {fileID: 1753679468}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PUNTOS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
