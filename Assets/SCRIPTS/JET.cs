@@ -13,7 +13,6 @@ public class JET : MonoBehaviour
     private Rigidbody _rb;
     private bool floor = true;
     public float jumpf;
-    private bool doblejump = false;
     public GameObject death;
     public GameObject canroot;
     private List<Transform> canchilds = new List<Transform>();
@@ -54,7 +53,6 @@ public class JET : MonoBehaviour
             Debug.Log(Vector3.up);
             _rb.AddForce(Vector3.up * jumpf);
             floor = false;
-            doblejump = true;
         }
 
         _rb.velocity = move;

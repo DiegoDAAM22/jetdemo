@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     private bool CamaraOn = false;
     private CinemachineVirtualCamera camaraPintar;
     private CinemachineVirtualCamera camaraNormal;
+    public int points = 0;
+    public TextMeshProUGUI texto;
+    public TextMeshProUGUI texto2;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +63,12 @@ public class GameManager : MonoBehaviour
     public bool ModoCamara()
     {
         return CamaraOn;
+    }
+
+    private void Update()
+    {
+        texto.text = points.ToString();
+        texto2.text = points.ToString();
     }
 
 }

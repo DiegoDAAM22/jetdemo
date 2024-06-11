@@ -1614,6 +1614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc84db6d2e9fa8e44ad8fd08104088a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: 0
+  texto: {fileID: 1753679468}
+  texto2: {fileID: 932962141}
 --- !u!4 &150447456
 Transform:
   m_ObjectHideFlags: 0
@@ -1982,8 +1985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 7587696760065551826, guid: 0c92730b525eb3848ae4ac44c99d4ae0, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &192362899
 GameObject:
@@ -2321,8 +2322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 5361300647731921653, guid: 2b9f76fcaac821341be0374b4742962a, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &216133344
 GameObject:
@@ -3625,8 +3624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 3839068188584515232, guid: 4526c89e72ea48b4ba2e7ed371dcaca0, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &339922195 stripped
 GameObject:
@@ -4538,8 +4535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 1440236586469529678, guid: 1769112abed31ce48887c730ee101229, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &454536166
 GameObject:
@@ -5522,8 +5517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 2393800747924540957, guid: a617da3dd5f00bb4aa30c469e1f4cbe9, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &600082074
 GameObject:
@@ -6429,8 +6422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 4827588755003577565, guid: 341890dcc8f83c64499e0ea6fe404a61, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &741517212
 GameObject:
@@ -7094,8 +7085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 182500114957320219, guid: 2bbf15f9c919a4044b35686a431761f6, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &926835133
 GameObject:
@@ -12112,8 +12101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pincel: {fileID: 8345912934085227508, guid: 009263d1daea0cb47bd1d2b159e2c351, type: 3}
-  texto: {fileID: 1753679468}
-  texto2: {fileID: 932962141}
   paint: {fileID: 642886937}
 --- !u!1 &1743671045
 GameObject:

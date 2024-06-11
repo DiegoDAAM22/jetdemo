@@ -6,14 +6,17 @@ public class movercan : MonoBehaviour
 {
     float rotationX = 0f;
     float rotationY = 0f;
-
+    private Animator _animatorController;
     public float limiteX;
     public float limiteY;
     public float sensitivity = 8f;
+    private bool movin = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        _animatorController = GetComponent<Animator>();
+        _animatorController.SetBool("movin", movin);
 
     }
 
@@ -22,6 +25,7 @@ public class movercan : MonoBehaviour
     {
         // en que modo estamos????
         GameManager.Instance.ModoCamara();
+
         // si estoy en modo pintar4...
 
         if (GameManager.Instance.ModoCamara())

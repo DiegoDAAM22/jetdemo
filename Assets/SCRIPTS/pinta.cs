@@ -9,9 +9,6 @@ public class pinta : MonoBehaviour
 {
     public GameObject pincel;
     private int rango = 3;
-    private int points = 0;
-    public TextMeshProUGUI texto;
-    public TextMeshProUGUI texto2;
     public AudioSource paint;
 
 
@@ -40,9 +37,8 @@ public class pinta : MonoBehaviour
                     GameObject pintado = Instantiate(pincel, hit.point, Quaternion.LookRotation(-hit.normal));
                     pintado.transform.parent = hit.collider.transform;
                         paint.Play();
-                        points++;
-                        texto.text = points.ToString();
-                        texto2.text = points.ToString();
+                        GameManager.Instance.points++;
+
 
                     }
             }
